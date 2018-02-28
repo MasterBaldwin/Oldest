@@ -6,21 +6,21 @@ import java.util.List;
 public class Oldest {
 public static void main(String[] args) {
     List<Person> members = new ArrayList<>();
-    JPanel panel = new JPanel();
-    JTextField nameField = new JTextField(15);
-    JTextField ageField = new JTextField(3);
-    int confirmCode;
+    JPanel panel;
+    JTextField nameField, ageField;
 
-    panel.add(new JLabel("Name: ")); panel.add(nameField);
+    panel = new JPanel();
+    nameField = new JTextField(8);
+    ageField = new JTextField(3);
+    panel.add(new JLabel("Name:")); panel.add(nameField);
     panel.add(Box.createHorizontalStrut(15));
-    panel.add(new JLabel("Age: ")); panel.add(ageField);
+    panel.add(new JLabel("Age:")); panel.add(ageField);
 
     while (!nameField.getText().equals("quit")) {
         nameField.setText("");
-        ageField.setText("");
-        confirmCode = JOptionPane.showConfirmDialog(null, panel, "Finding the Oldest", JOptionPane.DEFAULT_OPTION);
-        if (confirmCode == JOptionPane.OK_OPTION)
-            members.add(new Person(nameField.getText(), ageField.getText().isEmpty() ? 0 : Integer.parseInt(ageField.getText())));
+        ageField.setText("0");
+        JOptionPane.showConfirmDialog(null, panel, "Finding the Oldest", JOptionPane.DEFAULT_OPTION);
+        members.add(new Person(nameField.getText(), ageField.getText().isEmpty() ? 0 : Integer.parseInt(ageField.getText())));
     }
 
     members.sort(Comparator.comparingInt(o -> o.age));
