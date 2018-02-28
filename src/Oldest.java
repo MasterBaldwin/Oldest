@@ -4,11 +4,16 @@ import java.util.Comparator;
 import java.util.List;
 
 public class Oldest {
+// Written by: Mike Baldwin
+// Project 5 - Part 1 - Finding the Oldest
+// Determines the oldest person from a list of people and ages
+
 public static void main(String[] args) {
-    List<Person> members = new ArrayList<>();
+    List<Person> members;
     JPanel panel;
     JTextField nameField, ageField;
 
+    members = new ArrayList<>();
     panel = new JPanel();
     nameField = new JTextField(8);
     ageField = new JTextField(3);
